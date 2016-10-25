@@ -1,0 +1,40 @@
+﻿@model PlayTime.Web.Models.Home.HomeIndexModel
+
+<h1>Welcome, @User.Identity.Name</h1>
+
+<h2>Tasks you are assigned to:</h2>
+@if (Model.Tasks.Any())
+{
+    <ul>
+        @foreach (var task in Model.Tasks)
+        {
+            <li>
+                <p>@task.Name</p>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No tasks yet...</p>
+}
+
+<br/><br/>
+
+<h2>Projects you are assigned to:</h2>
+@if (Model.Projects.Any())
+{
+    <ul>
+        @foreach (var project in Model.Projects)
+        {
+            <li>
+                <p>@project.Name</p>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No projects yet...</p>
+}
+

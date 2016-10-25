@@ -1,0 +1,14 @@
+﻿@using PlayTime.Infrastructure.Models
+@model PlayTime.Web.Models.Tasks.TaskViewManyModel
+
+<h1>@Model.Project.Customer.Name - @Model.Project.Name - all tasks</h1>
+
+<ul>
+    @foreach (Task task in Model.Tasks)
+    {
+        <li>
+            @*@Html.ActionLink(task.Name, "View", "Task", new { @projectId = Model.ProjectId, @id = task.Id }, null)*@
+            @Html.TaskView(Model.ProjectId, task)
+        </li>
+    }
+</ul>

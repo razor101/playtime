@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{64A2A1B7-8C60-4B1C-A365-6C86B066278D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PlayTime.Data</RootNamespace>
+    <AssemblyName>PlayTime.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Migrations\201412051311188_InitialCreate.cs" />
+    <Compile Include="Migrations\201412051311188_InitialCreate.Designer.cs">
+      <DependentUpon>201412051311188_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412051317553_InitialCreate1.cs" />
+    <Compile Include="Migrations\201412051317553_InitialCreate1.Designer.cs">
+      <DependentUpon>201412051317553_InitialCreate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412051320065_UserLastLoginDate.cs" />
+    <Compile Include="Migrations\201412051320065_UserLastLoginDate.Designer.cs">
+      <DependentUpon>201412051320065_UserLastLoginDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412051340524_AddCustomerCreatedDate.cs" />
+    <Compile Include="Migrations\201412051340524_AddCustomerCreatedDate.Designer.cs">
+      <DependentUpon>201412051340524_AddCustomerCreatedDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412061124134_AddNewProperties.cs" />
+    <Compile Include="Migrations\201412061124134_AddNewProperties.Designer.cs">
+      <DependentUpon>201412061124134_AddNewProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412061142117_AddAndAdjustPresetTable.cs" />
+    <Compile Include="Migrations\201412061142117_AddAndAdjustPresetTable.Designer.cs">
+      <DependentUpon>201412061142117_AddAndAdjustPresetTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412061242462_AddLastModifiedDate.cs" />
+    <Compile Include="Migrations\201412061242462_AddLastModifiedDate.Designer.cs">
+      <DependentUpon>201412061242462_AddLastModifiedDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412061332047_AddModifiedProjectTable.cs" />
+    <Compile Include="Migrations\201412061332047_AddModifiedProjectTable.Designer.cs">
+      <DependentUpon>201412061332047_AddModifiedProjectTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412061333523_AddModifiedProjectTable1.cs" />
+    <Compile Include="Migrations\201412061333523_AddModifiedProjectTable1.Designer.cs">
+      <DependentUpon>201412061333523_AddModifiedProjectTable1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412080958559_AddRegistrationAdjustments.cs" />
+    <Compile Include="Migrations\201412080958559_AddRegistrationAdjustments.Designer.cs">
+      <DependentUpon>201412080958559_AddRegistrationAdjustments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412081321410_VariousChanges.cs" />
+    <Compile Include="Migrations\201412081321410_VariousChanges.Designer.cs">
+      <DependentUpon>201412081321410_VariousChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412082003042_VariousChanges1.cs" />
+    <Compile Include="Migrations\201412082003042_VariousChanges1.Designer.cs">
+      <DependentUpon>201412082003042_VariousChanges1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412111312186_AddInvoiceTable.cs" />
+    <Compile Include="Migrations\201412111312186_AddInvoiceTable.Designer.cs">
+      <DependentUpon>201412111312186_AddInvoiceTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412111314468_AddRenamedProjectColumn.cs" />
+    <Compile Include="Migrations\201412111314468_AddRenamedProjectColumn.Designer.cs">
+      <DependentUpon>201412111314468_AddRenamedProjectColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412111318151_AddRenamedProjectColumn_2.cs" />
+    <Compile Include="Migrations\201412111318151_AddRenamedProjectColumn_2.Designer.cs">
+      <DependentUpon>201412111318151_AddRenamedProjectColumn_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412201254366_AddAdjustTaskTable.cs" />
+    <Compile Include="Migrations\201412201254366_AddAdjustTaskTable.Designer.cs">
+      <DependentUpon>201412201254366_AddAdjustTaskTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412211433106_AddAdjustTaskTable1.cs" />
+    <Compile Include="Migrations\201412211433106_AddAdjustTaskTable1.Designer.cs">
+      <DependentUpon>201412211433106_AddAdjustTaskTable1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412220908517_AddNewTaskStatusTable.cs" />
+    <Compile Include="Migrations\201412220908517_AddNewTaskStatusTable.Designer.cs">
+      <DependentUpon>201412220908517_AddNewTaskStatusTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201412220912574_AddNewTaskStatusTable_2.cs" />
+    <Compile Include="Migrations\201412220912574_AddNewTaskStatusTable_2.Designer.cs">
+      <DependentUpon>201412220912574_AddNewTaskStatusTable_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607151216044_RegistrationRenamedNameToNote.cs" />
+    <Compile Include="Migrations\201607151216044_RegistrationRenamedNameToNote.Designer.cs">
+      <DependentUpon>201607151216044_RegistrationRenamedNameToNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610190924042_DidSomeStuff.cs" />
+    <Compile Include="Migrations\201610190924042_DidSomeStuff.Designer.cs">
+      <DependentUpon>201610190924042_DidSomeStuff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Invoice.cs" />
+    <Compile Include="Models\Preset.cs" />
+    <Compile Include="Models\TaskStatus.cs" />
+    <Compile Include="PlayTimeContext.cs" />
+    <Compile Include="PlayTimeInitializer.cs" />
+    <Compile Include="Models\BaseDataModel.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Project.cs" />
+    <Compile Include="Models\Registration.cs" />
+    <Compile Include="Models\Task.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201412051311188_InitialCreate.resx">
+      <DependentUpon>201412051311188_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412051317553_InitialCreate1.resx">
+      <DependentUpon>201412051317553_InitialCreate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412051320065_UserLastLoginDate.resx">
+      <DependentUpon>201412051320065_UserLastLoginDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412051340524_AddCustomerCreatedDate.resx">
+      <DependentUpon>201412051340524_AddCustomerCreatedDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412061124134_AddNewProperties.resx">
+      <DependentUpon>201412061124134_AddNewProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412061142117_AddAndAdjustPresetTable.resx">
+      <DependentUpon>201412061142117_AddAndAdjustPresetTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412061242462_AddLastModifiedDate.resx">
+      <DependentUpon>201412061242462_AddLastModifiedDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412061332047_AddModifiedProjectTable.resx">
+      <DependentUpon>201412061332047_AddModifiedProjectTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412061333523_AddModifiedProjectTable1.resx">
+      <DependentUpon>201412061333523_AddModifiedProjectTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412080958559_AddRegistrationAdjustments.resx">
+      <DependentUpon>201412080958559_AddRegistrationAdjustments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412081321410_VariousChanges.resx">
+      <DependentUpon>201412081321410_VariousChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412082003042_VariousChanges1.resx">
+      <DependentUpon>201412082003042_VariousChanges1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412111312186_AddInvoiceTable.resx">
+      <DependentUpon>201412111312186_AddInvoiceTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412111314468_AddRenamedProjectColumn.resx">
+      <DependentUpon>201412111314468_AddRenamedProjectColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412111318151_AddRenamedProjectColumn_2.resx">
+      <DependentUpon>201412111318151_AddRenamedProjectColumn_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412201254366_AddAdjustTaskTable.resx">
+      <DependentUpon>201412201254366_AddAdjustTaskTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412211433106_AddAdjustTaskTable1.resx">
+      <DependentUpon>201412211433106_AddAdjustTaskTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412220908517_AddNewTaskStatusTable.resx">
+      <DependentUpon>201412220908517_AddNewTaskStatusTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201412220912574_AddNewTaskStatusTable_2.resx">
+      <DependentUpon>201412220912574_AddNewTaskStatusTable_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607151216044_RegistrationRenamedNameToNote.resx">
+      <DependentUpon>201607151216044_RegistrationRenamedNameToNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610190924042_DidSomeStuff.resx">
+      <DependentUpon>201610190924042_DidSomeStuff.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

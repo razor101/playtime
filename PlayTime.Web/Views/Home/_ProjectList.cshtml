@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Project>
+
+<h2>Projects you are assigned to:</h2>
+@if (Model.Any())
+{
+    <ul>
+        @foreach (var project in Model)
+        {
+            <li>
+                <p>@project.Name</p>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No projects yet...</p>
+}

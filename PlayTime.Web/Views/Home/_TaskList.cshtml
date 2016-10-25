@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Task>
+
+<h2>Tasks you are assigned to:</h2>
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>User assigned</th>
+                <th>Project</th>
+                <th class="hidden-xs">Customer</th>
+                <th class="hidden-xs hidden-sm">Created</th>
+                <th class="hidden-xs hidden-sm">Modified</th>
+            </tr>
+        </thead>
+        @foreach (var task in Model)
+        {
+            <tr data-hover-row data-task-id="@task.Id">
+                <td>@task.Name</td>
+                <td>@task.User.DisplayName</td>
+                <td>@task.Project.Name</td>
+                <td class="hidden-xs">@task.Project.Customer.Name</td>
+                <td class="hidden-xs hidden-sm">@task.CreatedDate</td>
+                <td class="hidden-xs hidden-sm">@(task.LastModifiedDate.HasValue ? task.LastModifiedDate.Value.ToString() : "-")</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>No tasks yet...</p>
+}

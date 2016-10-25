@@ -1,0 +1,30 @@
+﻿@model PlayTime.Web.Models.Account.LoginModel
+
+<div class="row">
+    <div class="col-sm-12">
+        <div id="login">
+            <h1>@Resources_Account.PageTitle_Account_Login</h1>
+
+            @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.UserName)
+                    @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", @placeholder = Resources_Account.FieldPlaceholder_UserName })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Password)
+                    @Html.PasswordFor(x => x.Password, new { @class = "form-control", @placeholder = Resources_Account.FieldPlaceholder_Password })
+                </div>
+
+                @Html.Hidden("ReturnUrl")
+
+                @Html.ValidationSummary()
+
+                <input type="submit" value="@Resources_Account.Button_Account_Login_Submit" class="btn btn-default" />
+            }
+        </div>
+    </div>
+</div>

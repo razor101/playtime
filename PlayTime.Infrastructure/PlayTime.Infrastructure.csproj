@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FE641C1D-5B88-4586-A046-A650E0BD4359}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PlayTime.Infrastructure</RootNamespace>
+    <AssemblyName>PlayTime.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationServices\CustomerApplicationService.cs" />
+    <Compile Include="ApplicationServices\InvoiceApplicationService.cs" />
+    <Compile Include="ApplicationServices\ProjectApplicationService.cs" />
+    <Compile Include="ApplicationServices\RegistrationApplicationService.cs" />
+    <Compile Include="ApplicationServices\TaskApplicationService.cs" />
+    <Compile Include="ApplicationServices\UserApplicationService.cs" />
+    <Compile Include="DomainServices\CustomerDomainService.cs" />
+    <Compile Include="DomainServices\InvoiceDomainService.cs" />
+    <Compile Include="DomainServices\ProjectDomainService.cs" />
+    <Compile Include="DomainServices\RegistrationDomainService.cs" />
+    <Compile Include="DomainServices\TaskDomainService.cs" />
+    <Compile Include="DomainServices\UserDomainService.cs" />
+    <Compile Include="Interfaces\ApplicationServices\ICustomerApplicationService.cs" />
+    <Compile Include="Interfaces\ApplicationServices\IInvoiceApplicationService.cs" />
+    <Compile Include="Interfaces\ApplicationServices\IProjectApplicationService.cs" />
+    <Compile Include="Interfaces\ApplicationServices\IRegistrationApplicationService.cs" />
+    <Compile Include="Interfaces\ApplicationServices\ITaskApplicationService.cs" />
+    <Compile Include="Interfaces\ApplicationServices\IUserApplicationService.cs" />
+    <Compile Include="Interfaces\DomainServices\ICustomerDomainService.cs" />
+    <Compile Include="Interfaces\DomainServices\IInvoiceDomainService.cs" />
+    <Compile Include="Interfaces\DomainServices\IProjectDomainService.cs" />
+    <Compile Include="Interfaces\DomainServices\IRegistrationDomainService.cs" />
+    <Compile Include="Interfaces\DomainServices\ITaskDomainService.cs" />
+    <Compile Include="Interfaces\DomainServices\IUserDomainService.cs" />
+    <Compile Include="Interfaces\IBaseRepository.cs" />
+    <Compile Include="Interfaces\Repository\ICustomerRepository.cs" />
+    <Compile Include="Interfaces\Repository\IInvoiceRepository.cs" />
+    <Compile Include="Interfaces\Repository\IProjectRepository.cs" />
+    <Compile Include="Interfaces\Repository\IRegistrationRepository.cs" />
+    <Compile Include="Interfaces\Repository\ITaskRepository.cs" />
+    <Compile Include="Interfaces\Repository\IUserRepository.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Project.cs" />
+    <Compile Include="Models\Registration.cs" />
+    <Compile Include="Models\Task.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Mvc\LinkExtensions.cs" />
+    <Compile Include="Mvc\Security\ActiveDirectoryAuthorizeAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CustomerEntityRepository.cs" />
+    <Compile Include="Repository\InvoiceEntityRepository.cs" />
+    <Compile Include="Repository\ProjectEntityRepository.cs" />
+    <Compile Include="Repository\RegistrationEntityRepository.cs" />
+    <Compile Include="Repository\TaskEntityRepository.cs" />
+    <Compile Include="Repository\UserEntityRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PlayTime.Data\PlayTime.Data.csproj">
+      <Project>{64a2a1b7-8c60-4b1c-a365-6c86b066278d}</Project>
+      <Name>PlayTime.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

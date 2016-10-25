@@ -1,0 +1,31 @@
+﻿@model PlayTime.Web.Models.Invoice.InvoiceIndexModel
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1>Invoicing Index</h1>
+
+        @foreach (var group in Model.InvoiceGroups)
+        {
+            <p>@group.Customer.Name</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>ProjectName</th>
+                        <th>Invoicable hours</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    @foreach (var projectGroup in group.Projects)
+                    {
+                        <tr>
+                            <td>@projectGroup.Project.Name</td>
+                            <td>@Html.Raw(projectGroup.Project.Tasks.SelectMany(x => x.Registrations).Where(x => x.StartTime.HasValue && x.EndTime.HasValue).Aggregate((a, b) => (a.StartTime.Value - a.EndTime.Value)))</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>

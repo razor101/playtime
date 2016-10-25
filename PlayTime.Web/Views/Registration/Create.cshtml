@@ -1,0 +1,105 @@
+﻿@model PlayTime.Web.Models.Registration.RegistrationCreateModel
+<h1>Create new registration</h1>
+
+@using (Html.BeginForm("Create", "Registration", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+    <div>
+        @Html.LabelFor(x => x.Note)
+        @Html.EditorFor(x => x.Note)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.StartTime)
+        @Html.EditorFor(x => x.StartTime)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.EndTime)
+        @Html.EditorFor(x => x.EndTime)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.CustomerId)
+        @Html.DropDownListFor(x => x.CustomerId, Model.Customers)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.ProjectId)
+        @Html.DropDownListFor(x => x.ProjectId, Model.Projects)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.TaskId)
+        @Html.DropDownListFor(x => x.TaskId, Model.Tasks)
+    </div>
+    
+    <div>
+        @Html.ValidationSummary()
+    </div>
+    
+    <div>
+        <input type="submit" value="Create" />
+    </div>
+}
+
+<script>
+    (function($, undefined) {
+
+        $(document).ready(function($) {
+            console.log('begin');
+
+            $('body')
+                .on('change', '#CustomerId', function (e) {
+                    //console.log(e);
+                    $('#ProjectId').empty();
+                    $('#TaskId').empty();
+
+                    $.ajax({
+                        url: '/Project/GetCustomerProjects/' + $('#CustomerId option:selected').val(),
+                        contentType: 'application/json',
+                        dataType: 'json',
+                        type: 'GET',
+                        success: function (response) {
+                            console.log(response);
+
+                            if (!response) {
+                                $('#ProjectId').empty();
+
+                                return;
+                            }
+
+                            $.each(response, function (index, item) {
+                                console.log(item);
+                                $('#ProjectId').append($('<option></option>', { value: item.Id, text: item.Name }));
+                            });
+                        }
+                    });
+
+                })
+                .on('change', '#ProjectId', function (e) {
+                    $('#TaskId').empty();
+
+                    $.ajax({
+                        url: '/Task/GetProjectTasks/' + $('#ProjectId option:selected').val(),
+                        contentType: 'application/json',
+                        dataType: 'json',
+                        type: 'GET',
+                        success: function (response) {
+                            console.log(response);
+
+                            if (response == null || response.length == 0) {
+                                $('#TaskId').empty();
+
+                                return;
+                            }
+
+                            $.each(response, function (index, item) {
+                                console.log(item);
+                                $('#TaskId').append($('<option></option>', { value: item.Id, text: item.Name }));
+                            });
+                        }
+                    });
+
+                });
+
+        });
+
+    })(jQuery);
+</script>

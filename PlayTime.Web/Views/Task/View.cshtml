@@ -1,0 +1,11 @@
+﻿@model PlayTime.Web.Models.Tasks.TaskViewModel
+<h1>@Model.Project.Customer.Name - @Model.Project.Name - @(Model.Name ?? "(empty)")</h1>
+
+@if (Model.User == null)
+{
+    <p>Assigned user: none</p>
+}
+else
+{
+    <p>Assigned user: @Model.User.DisplayName</p>
+}

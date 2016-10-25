@@ -1,0 +1,10 @@
+﻿
+tr {
+
+    &[data-hover-row]:hover {
+        td {
+            cursor:pointer;
+            background-color: $gray-lighter;
+        }
+    }
+}

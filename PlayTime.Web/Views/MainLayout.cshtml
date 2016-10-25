@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head lang="da">
+    <meta charset="utf-8" />
+    <title>PlayTime Time Manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <link href="~/Content/Css/main.min.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#playtime-navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")">PlayTime Manager</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="playtime-navbar">
+                <ul class="nav navbar-nav">
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>
+                            @Html.ActionLink(Resources_Global.Text_Nav_Registrations, "Index", "Registration")
+                        </li>
+                        <li>
+                            @Html.ActionLink(Resources_Global.Text_Nav_Customers, "Index", "Customer")
+                        </li>
+                        <li>
+                            @Html.ActionLink(Resources_Global.Text_Nav_Projects, "Index", "Project")
+                        </li>
+                        <li>
+                            @Html.ActionLink(Resources_Global.Text_Nav_Invoicing, "Index", "Invoicing")
+                        </li>
+                    }
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>
+                            @Html.ActionLink(Resources_Account.Text_LogOut, "Logout", "Account")
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            @Html.ActionLink(Resources_Account.PageTitle_Account_Login, "Login", "Account")
+                        </li>
+                    }
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2">
+                <ul class="nav nav-pills nav-stacked">
+                    <li>jedan</li>
+                    <li>dva</li>
+                    <li>tri</li>
+                    <li>cetriri</li>
+                    <li>pet</li>
+                </ul>
+            </div>
+
+            <div class="col-sm-10">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Scripts/plugins.min.js"></script>
+    <script src="~/Scripts/main.min.js"></script>
+</body>
+</html>

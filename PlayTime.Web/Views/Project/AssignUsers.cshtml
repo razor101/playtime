@@ -1,0 +1,16 @@
+﻿@model PlayTime.Web.Models.Project.AssignUsersModel
+
+<h1>Assign users to </h1>
+
+@using (Html.BeginForm("AssignUsers", "Project", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.ProjectId)
+    
+    <div>
+        @Html.ListBoxFor(x => x.AssignedUsers, Model.AllUsers)
+    </div>
+    
+    <div>
+        <input type="submit" value="Save selections"/>
+    </div>
+}

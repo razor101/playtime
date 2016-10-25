@@ -1,0 +1,11 @@
+﻿@import "_bootstrap";
+@import "lumen-theme/_bootstrap.scss";
+
+@import "ressources/_login";
+@import "ressources/_tables";
+@import "ressources/_nav";
+@import "ressources/_modals";
+
+.text-bold {
+    font-weight:bold;
+}

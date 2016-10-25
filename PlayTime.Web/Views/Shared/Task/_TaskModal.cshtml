@@ -1,0 +1,56 @@
+﻿@model Task
+
+<div id="taskViewModal" class="modal in" tabindex="-1" role="dialog" aria-labelledby="taskViewModal" aria-hidden="false" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog taskViewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title white-text">@Model.Name</h4>
+            </div>
+
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <tbody>
+                    <tr>
+                        <td class="text-bold">User assigned</td>
+                        <td>@Model.User.DisplayName</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="text-bold">
+                                Registrations
+                            </div>
+
+                            @if (Model.Registrations.Any() == false)
+                            {
+                                <div>No registrations...</div>
+                            }
+                            else
+                            {
+                                foreach (var registration in Model.Registrations)
+                                {
+                                    <div>
+                                        @registration.Note
+                                    </div>
+                                }
+                            }
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal">Close</button>
+                @using (Ajax.BeginForm("SaveTaskChanges", new { controller = "Task" }, new AjaxOptions
+                {
+                    AllowCache = false,
+                    HttpMethod = "POST",
+                    OnSuccess = "function() { $('#taskViewModal').modal('hide); }"
+                }, new { @class = "form-inline", style = "display:inline-block;"} ))
+                {
+                    <button class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>

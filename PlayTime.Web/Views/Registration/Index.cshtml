@@ -1,0 +1,86 @@
+﻿@model PlayTime.Web.Models.Registration.RegistrationIndexModel
+
+<h1>@Resources_Registration.PageTitle_Registration_Index</h1>
+
+<p>
+    @Html.ActionLink(Resources_Registration.Button_CreateNew, "Create", "Registration")
+</p>
+
+@if (Model.Registrations.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>@Resources_Registration.Table_Note</th>
+                    <th>@Resources_Registration.Table_StartTime</th>
+                    <th>@Resources_Registration.Table_EndTime</th>
+                    <th>@Resources_Registration.Table_Customer</th>
+                    <th>@Resources_Registration.Table_Project</th>
+                    <th>@Resources_Registration.Table_Task</th>
+                    <th>@Resources_Registration.Table_TimeSpent</th>
+                    <th>@Resources_Registration.Table_IsInvoiced</th>
+                    <th>@Resources_Registration.Table_Edit</th>
+                    <th>@Resources_Registration.Table_Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Registration reg in Model.Registrations)
+                {
+                    string rowId = "RegId_" + reg.Id.ToString("N");
+
+                    <tr id="@rowId">
+                        <td>@reg.Note</td>
+                        <td>@reg.StartTime</td>
+                        <td>@reg.EndTime</td>
+                        <td>@reg.Task.Project.Customer.Name</td>
+                        <td>@reg.Task.Project.Name</td>
+                        <td>@reg.Task.Name</td>
+                        <td>
+                            @if (reg.StartTime.HasValue && reg.EndTime.HasValue)
+                            {
+                                <span>@reg.EndTime.Value.Subtract(reg.StartTime.Value)</span>
+                            }
+                        </td>
+                        <td>@Html.Raw(reg.IsInvoiced)</td>
+                        <td>
+                            @if (false == reg.IsInvoiced)
+                            {
+                                using (Ajax.BeginForm("Edit", "Registration", new AjaxOptions
+                                {
+                                    AllowCache = false,
+                                    HttpMethod = "POST",
+                                    UpdateTargetId = rowId,
+                                    InsertionMode = InsertionMode.ReplaceWith
+                                }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <input name="Id" value="@reg.Id" type="hidden"/>
+                                    <input name="Note" value="@reg.Note" type="hidden"/>
+                                    <input name="StartTime" value="@reg.StartTime" type="hidden"/>
+                                    <input name="EndTime" value="@reg.EndTime" type="hidden"/>
+                                    <input name="CustomerId" value="@reg.Task.Project.Customer.Id" type="hidden"/>
+                                    <input name="ProjectId" value="@reg.Task.Project.Id" type="hidden"/>
+                                    <input name="TaskId" value="@reg.Task.Id" type="hidden"/>
+
+                                    <input type="submit" value="@Resources_Registration.Table_Edit" class="btn btn-warning"/>
+                                }
+
+                            }
+                        </td>
+                        <td>
+                            @if (false == reg.IsInvoiced)
+                            {
+                                @Html.ActionLink(Resources_Registration.Table_Delete, "Create", "Registration")
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <p>@Resources_Registration.Message_NoData</p>
+}

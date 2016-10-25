@@ -1,0 +1,38 @@
+﻿@model PlayTime.Web.Models.Registration.RegistrationEditModel
+@{
+    string rowId = "RegId_" + Model.Id.ToString("N");
+}
+
+<tr id="@rowId">
+    <td>@Html.EditorFor(x => x.Note)</td>
+    <td>@Html.EditorFor(x => x.StartTime)</td>
+    <td>@Html.EditorFor(x => x.EndTime)</td>
+    <td>@Html.DropDownListFor(x => x.CustomerId, Model.Customers)</td>
+    <td>@Html.DropDownListFor(x => x.ProjectId, Model.Projects)</td>
+    <td>@Html.DropDownListFor(x => x.TaskId, Model.Tasks)</td>
+    <td>
+        @*@if (Model.StartTime.HasValue && Model.EndTime.HasValue)
+        {
+            <span>@Model.EndTime.Value.Subtract(Model.StartTime.Value)</span>
+        }*@
+    </td>
+    <td>@*@Html.Raw(Model.IsInvoiced)*@</td>
+    <td>
+        @using (Ajax.BeginForm("SaveChanges", "Registration", new AjaxOptions
+        {
+            AllowCache = false,
+            HttpMethod = "POST",
+            UpdateTargetId = rowId,
+            InsertionMode = InsertionMode.Replace
+        }))
+        {
+            <input type="submit" value="Save" class="btn btn-success" />
+        }
+    </td>
+    <td>
+        @*@if (false == Model.IsInvoiced)
+        {
+            @Html.ActionLink("Delete", "Create", "Registration")
+        }*@
+    </td>
+</tr>

@@ -1,0 +1,9 @@
+﻿@model PlayTime.Web.Models.Home.HomeIndexModel
+
+<h1>Welcome, @User.Identity.Name</h1>
+
+@Html.Partial("_TaskList", Model.Tasks)
+
+<br/><br/>
+
+@Html.Partial("_ProjectList", Model.Projects)
