@@ -252,4 +252,5 @@ paket-files/
 *.sln.iml
 
 # Custom ignores
-Webroot
+Webroot/
+PlayTime.Web/static/dist/

@@ -248,11 +248,11 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\main.js" />
-    <Content Include="Scripts\main.min.js" />
+    <Content Include="static\src\js\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\plugins.js" />
     <Content Include="Scripts\plugins.min.js" />
+    <Content Include="static\webpack.config.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -345,6 +345,7 @@
     <Content Include="Views\Home\_TaskList.cshtml" />
     <Content Include="Views\Home\_ProjectList.cshtml" />
     <Content Include="Views\Shared\Task\_TaskModal.cshtml" />
+    <Content Include="static\package.json" />
     <None Include="Views\Registration\_Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -355,9 +356,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\API\" />
-    <Folder Include="static\dist\css\" />
-    <Folder Include="static\dist\js\" />
-    <Folder Include="static\src\js\" />
     <Folder Include="static\src\scss\ressources\mixins\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,7 @@
 ﻿"use strict";
 
+var bootstrap = require('bootstrap');
+
 (function($, undefined) {
 
     $.PlayTime = {
@@ -8,7 +10,6 @@
             $.PlayTime.UI.Init();
 
             console.log('started');
-            console.log('started2');
         },
 
         UI: {
